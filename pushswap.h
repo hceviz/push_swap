@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 15:59:53 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/02 16:06:51 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/02 22:33:55 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 
 typedef struct s_stack
 {
-	int	*arr;
-	int	top;
-	int	capacity;
-	
+	int				value;
+	int				index;
+	struct s_stack	*prev;
+	struct s_stack	*next;
 } Stack;
 
 #endif
