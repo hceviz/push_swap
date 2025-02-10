@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.h                                         :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/02 15:59:53 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/08 19:42:17 by hceviz           ###   ########.fr       */
+/*   Created: 2024/12/03 19:40:00 by hceviz            #+#    #+#             */
+/*   Updated: 2025/02/08 16:44:25 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include "./libft/libft.h"
-# include <limits.h>
-
-typedef struct s_stack
+long	ft_atol(const char *p)
 {
-	int				value;
-	//int				index;
-	struct s_stack	*prev;
-	struct s_stack	*next;
-} Stack;
+	int		sign;
+	int		i;
+	long	res;
 
-void	add_to_list(Stack **head, int value);
-Stack	*create_node(int value);
-#endif
+	i = 0;
+	res = 0;
+	sign = 1;
+	while (p[i] && (p[i] == ' ' || p[i] == '\t'
+			|| p[i] == '\n' || p[i] == '\r'
+			|| p[i] == '\v' || p[i] == '\f'))
+		i++;
+	if (p[i] == '+')
+		i++;
+	if (p[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	while (p[i] >= 48 && p[i] <= 57)
+	{
+		res = (res * 10) + (p[i] - '0');
+		i++;
+	}
+	return (res * sign);
+}
