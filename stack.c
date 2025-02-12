@@ -1,33 +1,77 @@
 #include "pushswap.h"
 
-Stack	*create_node(int value)
+void	stack_init(Stack **stck, char **av)
+{
+	long	num;
+	int		i;
+
+	i = 0;
+	while (av[i])
+	{
+		if (!is_num(av[i]))
+		{
+			printf("error 1\n%s", av[i]);
+			free_and_exit(stck);
+		} //checks for -a, a, number
+		num = ft_atol(av[i]);
+		if (num > INT_MAX || num < INT_MIN)
+		{
+			printf("error 2");
+			free_and_exit(stck);
+		}
+		if (is_duplicate(av, num)) //num type is long
+		{
+			printf("error 3");
+			free_and_exit(stck);
+		}
+		append_node(stck, (int)num);
+		i++;
+	}
+	printf("Stack init success\n");
+}
+
+void	append_node(Stack **stck, int value)
 {
 	Stack	*node;
 
-	node = (Stack *)malloc(sizeof(Stack));
-	if (!node) exit(EXIT_FAILURE);
+	if (!stck)
+		return ;
+	node = malloc(sizeof(Stack));
+	if (!node)
+		return ;
 	node->value = value;
-	node->next = NULL;
-	node->prev = NULL;
-	return (node);	
-}
-
-void	add_to_list(Stack **head, int value)
-{
-	Stack	*new_node = create_node(value);
-	if (*head == NULL)
+	node->is_cheapest = false;
+	if (!(*stck))
 	{
-		*head = new_node;
-		new_node->next = head;
-		new_node->prev = head;
+		*stck = node;
+		node->prev = node;
+		node->next = node; //CHECK IS IT CORRECT
 	}
 	else
 	{
 		Stack	*tail;
-		tail = (*head)->prev;
-		while (tail->next)
-			tail = tail->next;
-		tail->next = new_node;
-		new_node->prev = tail;
+
+		tail = (*stck)->prev;
+		tail->next = node;
+		node->prev = tail;
+		node->next = (*stck);
+		(*stck)->prev = node;
+	}
+}
+
+//CHANGE WITH YOUR PRINTF
+void	print_list(Stack **stck)
+{
+	Stack	*head;
+	Stack	*temp;
+
+	head = *stck;
+	temp = *stck;
+	printf("%d\n", temp->value);
+	temp = temp->next;
+	while (temp != head)
+	{
+		printf("%d\n", temp->value);
+		temp = temp->next;
 	}
 }

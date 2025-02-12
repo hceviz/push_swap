@@ -65,7 +65,7 @@ The program should work with INT MAX & INT MIN
 
 ./push_swap "2147483647 843 56544 24394"
 
-
+------------------------------------------------------------
 these examples should work and sort your list
 
 
