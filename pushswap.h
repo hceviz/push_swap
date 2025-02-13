@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 15:59:53 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/12 08:50:20 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/13 17:32:41 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_stack
 	int				value;
 	int				index;
 	int				cost;
-	bool			a_median;
+	//bool			a_median;
 	bool			is_cheapest;
 	struct s_stack	*prev;
 	struct s_stack	*next;
@@ -42,4 +42,16 @@ Stack	*find_last_node(Stack **stck);
 void	append_node(Stack **stck, int value);
 void	print_list(Stack **stck);
 void	stack_init(Stack **stck, char **av);
+char **split(char *s, char c);
+static char	*get_next_word(char *str, char separator);
+static int	count_words(char *str, char separator);
+int	ft_isdigit(int c);
+int	is_sorted(Stack *stck);
+int	stacklen(Stack **stck);
+void	minisort(Stack **stck);
+int getmax(Stack **stck);
+void	swap(Stack **stck);
+void	sa(Stack	**a, bool print);
+void	sb(Stack	**b, bool print);
+void	ss(Stack **a, Stack **b, bool print);
 #endif

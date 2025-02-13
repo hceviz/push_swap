@@ -10,18 +10,18 @@ void	stack_init(Stack **stck, char **av)
 	{
 		if (!is_num(av[i]))
 		{
-			printf("error 1\n%s", av[i]);
+			printf("Num type error\n%s", av[i]);
 			free_and_exit(stck);
 		} //checks for -a, a, number
 		num = ft_atol(av[i]);
 		if (num > INT_MAX || num < INT_MIN)
 		{
-			printf("error 2");
+			printf("INT range error\n");
 			free_and_exit(stck);
 		}
 		if (is_duplicate(av, num)) //num type is long
 		{
-			printf("error 3");
+			printf("Duplicate error\n");
 			free_and_exit(stck);
 		}
 		append_node(stck, (int)num);
@@ -57,6 +57,19 @@ void	append_node(Stack **stck, int value)
 		node->next = (*stck);
 		(*stck)->prev = node;
 	}
+}
+
+int	is_sorted(Stack *stck) //ascending
+{
+	if (!stck)
+		return (0);
+	while (stck->next)
+	{
+		if (stck->value > stck->next->value)
+			return (-1);
+		stck = stck->next;
+	}
+	return (1);
 }
 
 //CHANGE WITH YOUR PRINTF

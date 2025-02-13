@@ -15,11 +15,18 @@ int	main(int ac, char **av)
 	}
 	else if (ac == 2)
 	{
-		av = ft_split(av[1], ' ');
-		no_split = 0;
+		av = split(av[1], ' ');
+		no_split = 1;
 	}
-	stack_init(&a, av);
-	print_list(&a); 
+	stack_init(&a, av + no_split);
+	if (is_sorted(a)== -1)
+	{
+		if (stacklen(a) <= 3) //for 2,3
+			minisort(&a);
+	} 
+	print_list(&a);
+	printf("Stack len:%d", stacklen(&a));
+	free(a);
 /* 	printf("%d\n", is_num("-a"));
 	printf("%d\n", is_num("a"));
 	printf("%d\n", is_num("-123"));

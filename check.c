@@ -1,5 +1,12 @@
 #include "pushswap.h"
 
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
+
 int	is_num(char *num)
 {
 	int	i;
@@ -48,9 +55,9 @@ void	free_stack(Stack **stck)
 	{
 		temp = current->next;
 		//current->value = 0;
+		printf("Free stack func for %d\n", current->value); //change with your printf
 		free(current);
 		current = temp;
-		printf("Freed\n");
 	}
 	*stck = NULL;
 } 
@@ -58,6 +65,6 @@ void	free_stack(Stack **stck)
 void	free_and_exit(Stack **stck)
 {
 	free_stack(stck);
-	printf("Error\n"); //change with your printf
+	printf("Free and exit func\n"); //change with your printf
 	exit(EXIT_FAILURE);
 }
