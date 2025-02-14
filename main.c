@@ -19,13 +19,16 @@ int	main(int ac, char **av)
 		no_split = 1;
 	}
 	stack_init(&a, av + no_split);
-	if (is_sorted(a)== -1)
+	/* if (is_sorted(a)== -1)
 	{
-		if (stacklen(a) <= 3) //for 2,3
+		if (stacklen(&a) <= 3) //for 2,3
 			minisort(&a);
-	} 
+	}  */
+	//print_list(&a);
+	/* Stack *last = getlast(&a);
+	printf("Last node: %d\n", last->value); */
+	rotate(&a);
 	print_list(&a);
-	printf("Stack len:%d", stacklen(&a));
 	free(a);
 /* 	printf("%d\n", is_num("-a"));
 	printf("%d\n", is_num("a"));

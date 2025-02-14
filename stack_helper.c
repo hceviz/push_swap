@@ -34,11 +34,11 @@ int	stacklen(Stack **stck)
 	return (count);
 }
 
-int getmax(Stack **stck)
+Stack	*getmax(Stack **stck)
 {
 	Stack	*head;
 	Stack	*current;
-	int		max;
+	Stack	*max;
 
 	max = 0;
 	head = *stck;
@@ -46,10 +46,47 @@ int getmax(Stack **stck)
 	current = current->next;
 	while (current != head)
 	{
-		if (current->value > max)
-			max = current->value;
+		if (current->value > max->value)
+			max = current;
 		current = current->next;
 	}
 
 	return (max);
+}
+
+Stack	*getmin(Stack **stck)
+{
+	Stack	*head;
+	Stack	*current;
+	Stack	*min;
+
+	min = 0;
+	head = *stck;
+	current = *stck;
+	current = current->next;
+	while (current != head)
+	{
+		if (current->value < min->value)
+			min = current;
+		current = current->next;
+	}
+
+	return (min);
+}
+
+Stack	*getlast(Stack **stck)
+{
+	Stack	*head;
+	Stack	*temp;
+
+	head = *stck;
+	temp = *stck;
+	printf("%d Index: %d\n", temp->value, temp->index);
+	temp = temp->next;
+	while (temp != head)
+	{
+		printf("%d Index: %d\n", temp->value, temp->index);
+		temp = temp->next;
+	}
+	return (temp->prev);
 }

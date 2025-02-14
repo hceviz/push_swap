@@ -46,6 +46,7 @@ void	append_node(Stack **stck, int value)
 		*stck = node;
 		node->prev = node;
 		node->next = node; //CHECK IS IT CORRECT
+		node->index = 0;
 	}
 	else
 	{
@@ -54,6 +55,7 @@ void	append_node(Stack **stck, int value)
 		tail = (*stck)->prev;
 		tail->next = node;
 		node->prev = tail;
+		node->index = tail->index + 1;
 		node->next = (*stck);
 		(*stck)->prev = node;
 	}
@@ -80,11 +82,11 @@ void	print_list(Stack **stck)
 
 	head = *stck;
 	temp = *stck;
-	printf("%d\n", temp->value);
+	printf("%d Index: %d\n", temp->value, temp->index);
 	temp = temp->next;
 	while (temp != head)
 	{
-		printf("%d\n", temp->value);
+		printf("%d Index: %d\n", temp->value, temp->index);
 		temp = temp->next;
 	}
 }
