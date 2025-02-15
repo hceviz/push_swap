@@ -6,7 +6,7 @@
 /*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 15:59:53 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/14 15:59:54 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/15 15:40:01 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,7 @@ void	sb(Stack	**b, bool print);
 void	ss(Stack **a, Stack **b, bool print);
 Stack	*getlast(Stack **stck);
 void	rotate(Stack **stck);
+void	ra(Stack **a, bool print);
+void	rb(Stack **b, bool print);
+void	rr(Stack **a, Stack **b, bool print);
 #endif

@@ -27,6 +27,7 @@ int	main(int ac, char **av)
 	//print_list(&a);
 	/* Stack *last = getlast(&a);
 	printf("Last node: %d\n", last->value); */
+	
 	rotate(&a);
 	print_list(&a);
 	free(a);
