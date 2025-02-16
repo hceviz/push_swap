@@ -6,7 +6,7 @@
 /*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 15:59:53 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/15 15:40:01 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/16 18:20:16 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,31 @@ int	is_duplicate(char **av, long num);
 void	free_stack(Stack **stck);
 void	free_and_exit(Stack **stck);
 long	ft_atol(const char *p);
-Stack	*find_last_node(Stack **stck);
+Stack	*find_last_node(Stack *stck);
 void	append_node(Stack **stck, int value);
-void	print_list(Stack **stck);
+void	print_list(Stack *stck);
 void	stack_init(Stack **stck, char **av);
 char **split(char *s, char c);
 static char	*get_next_word(char *str, char separator);
 static int	count_words(char *str, char separator);
 int	ft_isdigit(int c);
-int	is_sorted(Stack *stck);
-int	stacklen(Stack **stck);
+int	is_ascending(Stack *stck);
+int	stacklen(Stack *stck);
 void	minisort(Stack **stck);
-Stack	*getmax(Stack **stck);
-Stack	*getmin(Stack **stck);
+Stack	*getmax(Stack *stck);
+Stack	*getmin(Stack *stck);
 void	swap(Stack **stck);
 void	sa(Stack	**a, bool print);
 void	sb(Stack	**b, bool print);
 void	ss(Stack **a, Stack **b, bool print);
-Stack	*getlast(Stack **stck);
+Stack	*getlast(Stack *stck);
 void	rotate(Stack **stck);
 void	ra(Stack **a, bool print);
 void	rb(Stack **b, bool print);
 void	rr(Stack **a, Stack **b, bool print);
+void	reverse_rotate(Stack **stck);
+void	rra(Stack **a, bool print);
+void	rrb(Stack **b, bool print);
+void	rrr(Stack **a, Stack **b, bool print);
+static Stack *findhigh(Stack *stack);
 #endif

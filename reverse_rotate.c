@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/16 13:38:44 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/16 18:04:29 by hceviz           ###   ########.fr       */
+/*   Created: 2025/02/16 13:39:21 by hceviz            #+#    #+#             */
+/*   Updated: 2025/02/16 14:10:35 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	rotate(Stack **stck)
+void	reverse_rotate(Stack **stck)
 {
 	if (!*stck || (*stck)->next == *stck)
 		return ;
-	Stack	*first;
-	Stack	*last;
+	Stack	*new_tail;
 	Stack	*temp;
 	int		index;
 
-	first = *stck;
-	last = first->prev;
-	*stck = first->next;
-	last->next = first;
-	first->prev = last;
-	first->next = *stck;
-	(*stck)->prev = first;
+	new_tail = (*stck)->prev->prev;
+	*stck = (*stck)->prev;
 	temp = *stck;
 	index = 0;
-	while (temp != first)
+	while (temp != new_tail)
 	{
 		temp->index = index++;
 		temp = temp->next;
@@ -38,24 +32,24 @@ void	rotate(Stack **stck)
 	temp->index = index;
 }
 
-void	ra(Stack **a, bool print)
+void	rra(Stack **a, bool print)
 {
-	rotate(a);
+	reverse_rotate(a);
 	if (print == true)
-		printf("ra\n");
+		printf("rra\n"); //CHANGE WITH YOUR PRINTF
 }
 
-void	rb(Stack **b, bool print)
+void	rrb(Stack **b, bool print)
 {
-	rotate(b);
+	reverse_rotate(b);
 	if (print == true)
-		printf("rb\n");
+		printf("rrb\n"); //CHANGE WITH YOUR PRINTF
 }
 
-void	rr(Stack **a, Stack **b, bool print)
+void	rrr(Stack **a, Stack **b, bool print)
 {
-	rotate(a);
-	rotate(b);
+	reverse_rotate(a);
+	reverse_rotate(b);
 	if (print == true)
-		printf("rr\n");
+		printf("rrr\n"); //CHANGE WITH YOUR PRINTF
 }

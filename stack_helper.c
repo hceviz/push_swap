@@ -1,92 +1,80 @@
 #include "pushswap.h"
 
-Stack	*find_last_node(Stack **stck)
+Stack	*find_last_node(Stack *stck)
 {
-	Stack	*current;
-
-	current = *stck;
-	while(current)
-		current = current->next;
-	return (current);
+	if(!stck)
+		return (NULL);
+	while(stck->next)
+		stck = stck->next;
+	return (stck);
 }
 
-int	stacklen(Stack **stck)
+int	stacklen(Stack *stck)
 {
 	Stack	*head;
-	Stack	*current;
 	int		count;
 
-	count = 0;
-	head = *stck;
-	current = *stck;
-	if (!(*stck))
+	head = stck;
+	if (!stck)
 		return (0);
-	if (current->next == current)
+	if (stck->next == stck)
 		return (1);
-	current = current->next;
-	count++;
-	while (current != head)
+	stck = stck->next;
+	count = 1;
+	while (stck != head)
 	{
-		current = current->next;
-		count++;
+		stck = stck->next;
+		++count;
 	}
-
 	return (count);
 }
 
-Stack	*getmax(Stack **stck)
+Stack	*getmax(Stack *stck)
 {
+	long	max;
+	Stack	*max_node;
 	Stack	*head;
-	Stack	*current;
-	Stack	*max;
 
-	max = 0;
-	head = *stck;
-	current = *stck;
-	current = current->next;
-	while (current != head)
+	head = stck;
+	max = LONG_MIN;
+	while (stck != head)
 	{
-		if (current->value > max->value)
-			max = current;
-		current = current->next;
+		if (stck->value > max)
+		{
+			max = stck->value;
+			max_node = stck;
+		}
+		stck = stck->next;
 	}
-
-	return (max);
+	return (max_node);
 }
 
-Stack	*getmin(Stack **stck)
+Stack	*getmin(Stack *stck)
 {
+	long	min;
+	Stack	*min_node;
 	Stack	*head;
-	Stack	*current;
-	Stack	*min;
 
-	min = 0;
-	head = *stck;
-	current = *stck;
-	current = current->next;
-	while (current != head)
+	head = stck;
+	min = LONG_MAX;
+	while (stck != head)
 	{
-		if (current->value < min->value)
-			min = current;
-		current = current->next;
+		if (stck->value < min)
+		{
+			min = stck->value;
+			min_node = stck;
+		}
+		stck = stck->next;
 	}
-
-	return (min);
+	return (min_node);
 }
 
-Stack	*getlast(Stack **stck)
+Stack	*getlast(Stack *stck)
 {
 	Stack	*head;
-	Stack	*temp;
 
-	head = *stck;
-	temp = *stck;
-	printf("%d Index: %d\n", temp->value, temp->index);
-	temp = temp->next;
-	while (temp != head)
-	{
-		printf("%d Index: %d\n", temp->value, temp->index);
-		temp = temp->next;
-	}
-	return (temp->prev);
+	head = stck;
+	while (stck != head)
+		stck = stck->next;
+	return (stck);
 }

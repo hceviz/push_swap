@@ -61,27 +61,35 @@ void	append_node(Stack **stck, int value)
 	}
 }
 
-int	is_sorted(Stack *stck) //ascending
+int	is_ascending(Stack *stck) //ascending
 {
-	if (!stck)
+	Stack	*head;
+
+	head = stck;
+	if (stacklen(stck) == 1)
+		return (1);
+	if (stck->value > stck->next->value)
 		return (0);
-	while (stck->next)
+	else
+		stck = stck->next;
+	while (stck->next != head)
 	{
 		if (stck->value > stck->next->value)
-			return (-1);
+			return (0);
 		stck = stck->next;
 	}
 	return (1);
 }
 
 //CHANGE WITH YOUR PRINTF
-void	print_list(Stack **stck)
+//delete the func before push
+void	print_list(Stack *stck)
 {
 	Stack	*head;
 	Stack	*temp;
 
-	head = *stck;
-	temp = *stck;
+	head = stck;
+	temp = stck;
 	printf("%d Index: %d\n", temp->value, temp->index);
 	temp = temp->next;
 	while (temp != head)

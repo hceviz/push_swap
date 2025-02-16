@@ -1,6 +1,6 @@
 #include "pushswap.h"
 
-void	swap(Stack **stck)
+/* void	swap(Stack **stck)
 {
 	if (!(*stck) || !(*stck)->next)
 	{
@@ -14,7 +14,36 @@ void	swap(Stack **stck)
 	(*stck)->next->prev = (*stck)->prev;
 	(*stck)->prev->next = (*stck)->next;
 	*stck = (*stck)->next;
+} */
+
+void swap(Stack **stck)
+{
+    if (!(*stck) || !(*stck)->next)
+        return; // If list is empty or has only one element, do nothing
+
+    Stack	*first;
+    Stack	*second;
+	int		index;
+
+	first = *stck;
+	second = first->next;
+	index = 0;
+    // Adjusting the links
+    first->next = second->next;
+    if (second->next) // If there's a third node, update its previous pointer
+        second->next->prev = first;
+    second->prev = first->prev;
+    second->next = first;
+    first->prev = second;
+    if (second->prev) // If there was a previous node, update its next pointer
+        second->prev->next = second;
+	
+	*stck = second; // Update the head of the list
+	index = first->index;
+	first->index = second->index;
+	second->index = index;
 }
+
 
 //to avoid from creating extra print function, added boolean print param
 void	sa(Stack	**a, bool print)
