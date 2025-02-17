@@ -8,5 +8,4 @@
 
 void	find_target_node(Stack *a, Stack *b)
 {
-	
 }
