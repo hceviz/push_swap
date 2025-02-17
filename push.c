@@ -27,8 +27,8 @@ void	push(Stack **from, Stack **to) //careful with variable names
 		(*to)->prev = node;
 		*to = node;
 	}
-	//update_index(*to);
-	//update_index(*from);
+	update_index(*to);
+	update_index(*from);
 }
 
 void	pa(Stack  **b, Stack **a, bool print)
