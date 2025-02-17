@@ -6,7 +6,7 @@
 /*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 15:59:53 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/17 10:27:56 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/17 11:23:25 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ typedef struct s_stack
 	int				value;
 	int				index;
 	int				cost;
-	//bool			a_median;
+	bool			a_median;
 	bool			is_cheapest;
+	struct s_stack	*target;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 } Stack;

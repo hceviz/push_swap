@@ -6,7 +6,7 @@
 /*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 13:39:21 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/17 10:29:44 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/17 11:05:44 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	reverse_rotate(Stack **stck)
 	if (!*stck || (*stck)->next == *stck)
 		return ;
 	*stck = (*stck)->prev;
-	update_index(*stck);
+	//update_index(*stck);
 }
 
 void	rra(Stack **a, bool print)

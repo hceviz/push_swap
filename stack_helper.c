@@ -6,7 +6,7 @@
 /*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 07:45:12 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/17 10:08:19 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/17 11:03:27 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,16 +106,22 @@ void	update_index(Stack *stck)
 {
 	Stack	*head;
 	int		index;
+	int		median;
 
 	if (!stck)
 		return ;
 	head = stck;
 	index = 0;
+	median = stacklen(stck) / 2;
 	stck->index = index++;
 	stck = stck->next;
 	while (stck != head)
 	{
 		stck->index = index++;
+		if (index > median)
+			stck->a_median = false;
+		else
+			stck->a_median = true;
 		stck = stck->next;
 	}
 }

@@ -10,18 +10,18 @@ void	stack_init(Stack **stck, char **av)
 	{
 		if (!is_num(av[i]))
 		{
-			printf("Num type error\n%s", av[i]);
+			ft_putstr("Num type error\n");
 			free_and_exit(stck);
 		} //checks for -a, a, number
 		num = ft_atol(av[i]);
 		if (num > INT_MAX || num < INT_MIN)
 		{
-			printf("INT range error\n");
+			ft_putstr("INT range error\n");
 			free_and_exit(stck);
 		}
 		if (is_duplicate(av, num)) //num type is long
 		{
-			printf("Duplicate error\n");
+			ft_putstr("Duplicate error\n");
 			free_and_exit(stck);
 		}
 		append_node(stck, (int)num);
