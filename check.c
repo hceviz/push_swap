@@ -55,7 +55,7 @@ void	free_stack(Stack **stck)
 	{
 		temp = current->next;
 		//current->value = 0;
-		printf("Free stack func for %d\n", current->value); //change with your printf
+		printf("Free stack func for %d\n", current->value); //delete this line before pushing
 		free(current);
 		current = temp;
 	}
@@ -65,6 +65,6 @@ void	free_stack(Stack **stck)
 void	free_and_exit(Stack **stck)
 {
 	free_stack(stck);
-	printf("Free and exit func\n"); //change with your printf
+	printf("Free and exit func\n"); //delete this line before pushing
 	exit(EXIT_FAILURE);
 }

@@ -1,13 +1,16 @@
-#include "pushswap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_helper.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/17 07:45:12 by hceviz            #+#    #+#             */
+/*   Updated: 2025/02/17 10:08:19 by hceviz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-Stack	*find_last_node(Stack *stck)
-{
-	if(!stck)
-		return (NULL);
-	while(stck->next)
-		stck = stck->next;
-	return (stck);
-}
+#include "pushswap.h"
 
 int	stacklen(Stack *stck)
 {
@@ -31,50 +34,88 @@ int	stacklen(Stack *stck)
 
 Stack	*getmax(Stack *stck)
 {
-	long	max;
-	Stack	*max_node;
-	Stack	*head;
+	int			highest;
+	Stack		*highest_node;
+	Stack		*head;
 
+	if (NULL == stck)
+		return (NULL);
 	head = stck;
-	max = LONG_MIN;
+	highest = INT_MIN;
+	highest_node = stck;
+	if (stck->value > highest)
+	{
+		highest = stck->value;
+		highest_node = stck;
+	}
+	stck = stck->next;
 	while (stck != head)
 	{
-		if (stck->value > max)
+		if (stck->value > highest)
 		{
-			max = stck->value;
-			max_node = stck;
+			highest = stck->value;
+			highest_node = stck;
 		}
 		stck = stck->next;
 	}
-	return (max_node);
+	return (highest_node);
 }
 
 Stack	*getmin(Stack *stck)
 {
-	long	min;
-	Stack	*min_node;
-	Stack	*head;
+	int			lowest;
+	Stack		*lowest_node;
+	Stack		*head;
 
+	if (NULL == stck)
+		return (NULL);
 	head = stck;
-	min = LONG_MAX;
+	lowest = INT_MAX;
+	lowest_node = stck;
+	if (stck->value < lowest)
+	{
+		lowest = stck->value;
+		lowest_node = stck;
+	}
+	stck = stck->next;
 	while (stck != head)
 	{
-		if (stck->value < min)
+		if (stck->value < lowest)
 		{
-			min = stck->value;
-			min_node = stck;
+			lowest = stck->value;
+			lowest_node = stck;
 		}
 		stck = stck->next;
 	}
-	return (min_node);
+	return (lowest_node);
 }
 
 Stack	*getlast(Stack *stck)
 {
 	Stack	*head;
 
+	if (!stck)
+		return (NULL);
 	head = stck;
-	while (stck != head)
+	while (stck->next != head)
 		stck = stck->next;
 	return (stck);
+}
+
+void	update_index(Stack *stck)
+{
+	Stack	*head;
+	int		index;
+
+	if (!stck)
+		return ;
+	head = stck;
+	index = 0;
+	stck->index = index++;
+	stck = stck->next;
+	while (stck != head)
+	{
+		stck->index = index++;
+		stck = stck->next;
+	}
 }

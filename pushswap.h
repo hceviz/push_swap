@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 15:59:53 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/16 18:20:16 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/17 10:27:56 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	is_duplicate(char **av, long num);
 void	free_stack(Stack **stck);
 void	free_and_exit(Stack **stck);
 long	ft_atol(const char *p);
-Stack	*find_last_node(Stack *stck);
 void	append_node(Stack **stck, int value);
 void	print_list(Stack *stck);
 void	stack_init(Stack **stck, char **av);
@@ -63,5 +62,10 @@ void	reverse_rotate(Stack **stck);
 void	rra(Stack **a, bool print);
 void	rrb(Stack **b, bool print);
 void	rrr(Stack **a, Stack **b, bool print);
-static Stack *findhigh(Stack *stack);
+void	pop_node(Stack **stck);
+void	update_index(Stack *stck);
+void	push(Stack **from, Stack **to);
+void	pa(Stack  **b, Stack **a, bool print);
+void	pb(Stack **a, Stack **b, bool print);
+void	ft_putstr(char *str);
 #endif

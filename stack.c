@@ -48,7 +48,7 @@ void	append_node(Stack **stck, int value)
 		node->next = node; //CHECK IS IT CORRECT
 		node->index = 0;
 	}
-	else
+	/* else
 	{
 		Stack	*tail;
 
@@ -56,6 +56,14 @@ void	append_node(Stack **stck, int value)
 		tail->next = node;
 		node->prev = tail;
 		node->index = tail->index + 1;
+		node->next = (*stck);
+		(*stck)->prev = node;
+	} */
+	 else
+	{
+		(*stck)->prev->next = node;
+		node->prev = (*stck)->prev;
+		node->index = (*stck)->prev->index + 1;
 		node->next = (*stck);
 		(*stck)->prev = node;
 	}
@@ -81,6 +89,26 @@ int	is_ascending(Stack *stck) //ascending
 	return (1);
 }
 
+void	pop_node(Stack **stck)
+{
+	Stack	*node;
+	Stack	*last;
+
+	if (!*stck)
+		return ;
+	node = *stck;
+	if ((*stck)->next == *stck)
+		*stck = NULL;
+	else
+	{
+		last = (*stck)->prev;
+		*stck = (*stck)->next;
+		(*stck)->prev = last;
+		last->next = *stck;
+	}
+	free(node);
+	update_index(*stck);
+}
 //CHANGE WITH YOUR PRINTF
 //delete the func before push
 void	print_list(Stack *stck)
