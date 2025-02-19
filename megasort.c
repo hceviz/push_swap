@@ -6,8 +6,20 @@
 //cost(a, b)
 //set_cheapes(a)
 
-void	find_target_node(Stack *a, Stack *b)
+void	megasort(Stack **a, Stack **b)
 {
+	int	len_a;
 
+	len_a = stacklen(*a);
+	if (len_a-- > 3 && !is_ascending(a))
+		pb(a, b, false); //should it be false?
+	if (len_a-- > 3 && !is_ascending(a))
+		pb(a, b, false); //should it be false?
+	while (len_a-- > 3 && !is_ascending(a))
+	{
+		tune_nodes_a(*a, *b);
+		
+	}
+	
 }
 

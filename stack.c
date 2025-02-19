@@ -109,6 +109,23 @@ void	pop_node(Stack **stck)
 	free(node);
 	update_index(*stck);
 }
+Stack	*get_cheapest(Stack	*a)
+{
+	Stack	*a_head;
+
+	if (!a)
+		return (NULL);
+	a_head = a;
+	while (a)
+	{
+		if (a->is_cheapest)
+			return (a);
+		a = a->next;
+		if (a == a_head)
+			break;
+	}
+	return (NULL);
+}
 //CHANGE WITH YOUR PRINTF
 //delete the func before push
 void	print_list(Stack *stck)
