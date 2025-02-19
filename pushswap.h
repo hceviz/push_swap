@@ -6,7 +6,7 @@
 /*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 15:59:53 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/17 11:23:25 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/19 11:30:43 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,9 @@ void	push(Stack **from, Stack **to);
 void	pa(Stack  **b, Stack **a, bool print);
 void	pb(Stack **a, Stack **b, bool print);
 void	ft_putstr(char *str);
+void	set_target_for_a(Stack *a, Stack *b);
+Stack	*find_closest_smaller(Stack *b, int a_value);
+void	calculate_cost(Stack *a, Stack *b);
+void	set_cheapest(Stack *a);
+void	tune_nodes_a(Stack *a, Stack *b);
 #endif

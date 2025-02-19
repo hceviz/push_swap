@@ -1,6 +1,5 @@
 #include "pushswap.h"
 
-//check rra is allowed to use like that
 void	push(Stack **from, Stack **to) //careful with variable names
 {
 	Stack	*node;
@@ -12,7 +11,10 @@ void	push(Stack **from, Stack **to) //careful with variable names
 	if (*from == node)
 		*from = NULL;
 	else
+	{
+		(*from)->prev = node->prev;
 		node->prev->next = 	*from;
+	}
 	if (!*to)
 	{
 		*to = node;

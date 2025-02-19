@@ -6,7 +6,7 @@
 /*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 07:45:12 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/17 11:03:27 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/19 10:52:24 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,16 +112,16 @@ void	update_index(Stack *stck)
 		return ;
 	head = stck;
 	index = 0;
-	median = stacklen(stck) / 2;
-	stck->index = index++;
-	stck = stck->next;
-	while (stck != head)
+	median = stacklen(stck) / 2; //consider the median location in case of float number 5/2
+	while (stck)
 	{
-		stck->index = index++;
 		if (index > median)
 			stck->a_median = false;
 		else
 			stck->a_median = true;
+		stck->index = index++;
 		stck = stck->next;
+		if (stck == head)
+			break;
 	}
 }
