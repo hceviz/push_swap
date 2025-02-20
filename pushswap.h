@@ -75,4 +75,5 @@ void	calculate_cost(Stack *a, Stack *b);
 void	set_cheapest(Stack *a);
 void	tune_nodes_a(Stack *a, Stack *b);
 void	prep_push(Stack **stck, Stack *node_for_top, char stack_name);
+
 #endif
