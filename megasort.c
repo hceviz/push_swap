@@ -6,6 +6,12 @@
 //cost(a, b)
 //set_cheapes(a)
 
+
+
+//understand the rotateboth and revrotateboth functions
+
+//and implement movetoa and movetob functionss
+
 void	megasort(Stack **a, Stack **b)
 {
 	int	len_a;
@@ -20,6 +26,5 @@ void	megasort(Stack **a, Stack **b)
 		tune_nodes_a(*a, *b);
 		
 	}
-	
 }
 

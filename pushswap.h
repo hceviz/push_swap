@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 15:59:53 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/19 11:30:43 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/20 12:19:55 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,5 @@ Stack	*find_closest_smaller(Stack *b, int a_value);
 void	calculate_cost(Stack *a, Stack *b);
 void	set_cheapest(Stack *a);
 void	tune_nodes_a(Stack *a, Stack *b);
+void	prep_push(Stack **stck, Stack *node_for_top, char stack_name);
 #endif
