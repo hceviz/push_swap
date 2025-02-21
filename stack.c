@@ -126,20 +126,3 @@ Stack	*get_cheapest(Stack	*a)
 	}
 	return (NULL);
 }
-//CHANGE WITH YOUR PRINTF
-//delete the func before push
-void	print_list(Stack *stck)
-{
-	Stack	*head;
-	Stack	*temp;
-
-	head = stck;
-	temp = stck;
-	printf("%d Index: %d\n", temp->value, temp->index);
-	temp = temp->next;
-	while (temp != head)
-	{
-		printf("%d Index: %d\n", temp->value, temp->index);
-		temp = temp->next;
-	}
-}

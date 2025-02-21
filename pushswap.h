@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 15:59:53 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/20 12:19:55 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/21 11:51:14 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,9 @@ void	sa(Stack	**a, bool print);
 void	sb(Stack	**b, bool print);
 void	ss(Stack **a, Stack **b, bool print);
 Stack	*getlast(Stack *stck);
-void	rotate(Stack **stck);
-void	ra(Stack **a, bool print);
-void	rb(Stack **b, bool print);
+void	rotate_both_ways(Stack **stck, char direction, char stackname, bool print);
 void	rr(Stack **a, Stack **b, bool print);
 void	reverse_rotate(Stack **stck);
-void	rra(Stack **a, bool print);
-void	rrb(Stack **b, bool print);
 void	rrr(Stack **a, Stack **b, bool print);
 void	pop_node(Stack **stck);
 void	update_index(Stack *stck);
@@ -75,5 +71,14 @@ void	calculate_cost(Stack *a, Stack *b);
 void	set_cheapest(Stack *a);
 void	tune_nodes_a(Stack *a, Stack *b);
 void	prep_push(Stack **stck, Stack *node_for_top, char stack_name);
+Stack	*get_cheapest(Stack	*a);
+void	top_min(Stack **a);
+void	revnormal_both(Stack **a, Stack **b, Stack *cheapest, char r_type);
+void	set_target_for_b(Stack *a, Stack *b);
+Stack	*find_closest_bigger(Stack *a, int b_value);
+void	tune_nodes_b(Stack *a, Stack *b);
+void	megasort(Stack **a, Stack **b);
+int is_in_stack(Stack *stack, Stack *node);
+void	set_connections(Stack *node, Stack **to);
 
 #endif

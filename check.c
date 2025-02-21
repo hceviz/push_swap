@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/21 10:55:00 by hceviz            #+#    #+#             */
+/*   Updated: 2025/02/21 11:36:30 by hceviz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
 int	ft_isdigit(int c)
@@ -39,7 +51,7 @@ int	is_duplicate(char **av, long num)
 	if (count > 1)
 		return (1);
 	return (0);
-} 
+}
 
 void	free_stack(Stack **stck)
 {
@@ -49,22 +61,18 @@ void	free_stack(Stack **stck)
 	if (!stck || !(*stck))
 		return ;
 	current = *stck;
-
-	(*stck)->prev->next = NULL; //to break the circle
+	(*stck)->prev->next = NULL;
 	while (current)
 	{
 		temp = current->next;
-		//current->value = 0;
-		printf("Free stack func for %d\n", current->value); //delete this line before pushing
 		free(current);
 		current = temp;
 	}
 	*stck = NULL;
-} 
+}
 
 void	free_and_exit(Stack **stck)
 {
 	free_stack(stck);
-	printf("Free and exit func\n"); //delete this line before pushing
 	exit(EXIT_FAILURE);
 }

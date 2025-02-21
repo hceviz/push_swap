@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   stack_helper.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 07:45:12 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/20 12:19:41 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/21 11:15:42 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
+void	minisort(Stack **a)
+{
+	Stack	*highest_node;
+
+	highest_node = getmax(*a);
+	if (*a == highest_node)
+		rotate_both_ways(a, 'f', 'a', true);
+	else if ((*a)->next == highest_node)
+		rotate_both_ways(a, 'r', 'a', true);
+	if ((*a)->value > (*a)->next->value)
+		sa(a, true);
+}
 
 Stack	*getlast(Stack *stck)
 {
@@ -48,23 +61,30 @@ void	update_index(Stack *stck)
 	}
 }
 
-void	prep_push(Stack **stck, Stack *node_for_top, char stack_name)
+int is_in_stack(Stack *stack, Stack *node) //DELETE FROM HERE AND HEADER BEFORE PUSH 
 {
-	while (*stck != node_for_top)
+	Stack *tmp = stack;
+	if (!stack || !node)
+		return (0);
+	while (tmp)
 	{
-		if (stack_name == 'a')
-		{
-			if (node_for_top->a_median)
-				ra(stck, false);
-			else
-				rra(stck, false);
-		}
-		else if (stack_name == 'b')
-		{
-			if (node_for_top->a_median)
-				rb(stck, false);
-			else
-				rrb(stck, false);
-		}
+		if (tmp == node)
+			return (1);
+		tmp = tmp->next;
+		if (tmp == stack)  // If stack is circular, avoid infinite loop
+			break;
+	}
+	return (0);
+}
+
+void	top_min(Stack **a)
+{
+	//printf("Top min block\n");
+	while((*a)->value != getmin(*a)->value)
+	{
+		if (getmin(*a)->a_median)
+			rotate_both_ways(a, 'f', 'a', true);
+		else
+			rotate_both_ways(a, 'r', 'a', true);
 	}
 }

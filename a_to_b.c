@@ -1,12 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   a_to_b.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/21 10:53:15 by hceviz            #+#    #+#             */
+/*   Updated: 2025/02/21 11:35:14 by hceviz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
-
-//findtarget()
-//costanalysis
-//findcheapest()
-//THESE FUNCTIONS MUST BE 'A' STACK SPECIFIC
-//CUZ WE ACT DIFFERENTLY WHEN WE MOVE A TO B AND B TO A
-
-//A->B closest smaller
 
 Stack	*find_closest_smaller(Stack *b, int a_value)
 {
@@ -26,7 +30,7 @@ Stack	*find_closest_smaller(Stack *b, int a_value)
 		}
 		current_b = current_b->next;
 		if (current_b == b)
-			break;
+			break ;
 	}
 	return (target_node);
 }
@@ -46,7 +50,7 @@ void	set_target_for_a(Stack *a, Stack *b)
 			a->target = getmax(b);
 		a = a->next;
 		if (a == a_head)
-			break;
+			break ;
 	}
 }
 
@@ -70,7 +74,7 @@ void	calculate_cost(Stack *a, Stack *b)
 			a->cost += len_b - (a->target->index);
 		a = a->next;
 		if (a == a_head)
-			break;
+			break ;
 	}
 }
 
@@ -94,7 +98,7 @@ void	set_cheapest(Stack *a)
 		}
 		a = a->next;
 		if (a == a_head)
-			break;
+			break ;
 	}
 	cheapest_node->is_cheapest = true;
 }
