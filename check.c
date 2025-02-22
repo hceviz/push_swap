@@ -6,7 +6,7 @@
 /*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:55:00 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/22 16:05:17 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/22 16:32:03 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	is_num(char *num)
 	if ((*num == '-' || *num == '+') && (*(++num) == 0))
 	{
 		write(2, "Error\n", 6);
-		exit(EXIT_FAILURE); //should i free something here
+		exit(EXIT_FAILURE);
 	}
 	if (num[i] == '-' || num[i] == '+')
 		i++;
