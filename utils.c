@@ -6,7 +6,7 @@
 /*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:25:42 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/22 14:05:35 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/22 16:28:34 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_putstr(char *str)
 		write(1, &str[i], 1);
 }
 
-long	ft_atol(const char *p)
+/* long	ft_atol(const char *p)
 {
 	int		sign;
 	int		i;
@@ -40,6 +40,34 @@ long	ft_atol(const char *p)
 	{
 		sign = -1;
 		i++;
+	}
+	while (p[i] >= 48 && p[i] <= 57)
+	{
+		res = (res * 10) + (p[i] - '0');
+		i++;
+	}
+	return (res * sign);
+} */
+
+long	ft_atol(const char *p)
+{
+	int		sign;
+	int		i;
+	long	res;
+
+	i = 0;
+	res = 0;
+	sign = 1;
+	if (p[i] == '-' || p[i] == '+')
+	{
+		if (p[i] == '-')
+			sign = -1;
+		i++;
+	}
+	if (p[i] == '-' || p[i] == '+')
+	{ 
+		write(2, "Error\n", 6);
+		exit(EXIT_FAILURE);
 	}
 	while (p[i] >= 48 && p[i] <= 57)
 	{
@@ -71,14 +99,14 @@ int	stacklen(t_stack *stck)
 
 t_stack	*getmax(t_stack *stck)
 {
-	int			highest;
+	long		highest;
 	t_stack		*highest_node;
 	t_stack		*head;
 
 	if (NULL == stck)
 		return (NULL);
 	head = stck;
-	highest = INT_MIN;
+	highest = LONG_MIN;
 	highest_node = stck;
 	if (stck->value > highest)
 	{
@@ -100,14 +128,14 @@ t_stack	*getmax(t_stack *stck)
 
 t_stack	*getmin(t_stack *stck)
 {
-	int			lowest;
+	long		lowest;
 	t_stack		*lowest_node;
 	t_stack		*head;
 
 	if (NULL == stck)
 		return (NULL);
 	head = stck;
-	lowest = INT_MAX;
+	lowest = LONG_MAX;
 	lowest_node = stck;
 	if (stck->value < lowest)
 	{

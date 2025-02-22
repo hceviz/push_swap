@@ -6,7 +6,7 @@
 /*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:54:26 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/22 14:06:35 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/22 16:27:37 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ t_stack	*find_closest_bigger(t_stack *a, int b_value)
 {
 	t_stack	*current_a;
 	t_stack	*target_node;
-	int		closer_num;
+	long	closer_num;
 
-	closer_num = INT_MAX;
+	closer_num = LONG_MAX;
 	current_a = a;
 	target_node = NULL;
 	while (1)

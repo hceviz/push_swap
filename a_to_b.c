@@ -6,7 +6,7 @@
 /*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:53:15 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/22 14:07:14 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/22 16:27:24 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ t_stack	*find_closest_smaller(t_stack *b, int a_value)
 {
 	t_stack	*current_b;
 	t_stack	*target_node;
-	int		closer_num;
+	long	closer_num;
 
-	closer_num = INT_MIN;
+	closer_num = LONG_MIN;
 	current_b = b;
 	target_node = NULL;
 	while (1)
@@ -83,12 +83,12 @@ void	set_cheapest(t_stack *a)
 {
 	t_stack	*a_head;
 	t_stack	*cheapest_node;
-	int		cheapest;
+	long	cheapest;
 
 	if (!a)
 		return ;
 	a_head = a;
-	cheapest = INT_MAX;
+	cheapest = LONG_MAX;
 	while (a)
 	{
 		if (a->cost < cheapest)

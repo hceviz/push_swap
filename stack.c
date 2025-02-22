@@ -6,7 +6,7 @@
 /*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 11:21:56 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/22 14:05:46 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/22 15:58:04 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ void	stack_init(t_stack **stck, char **av)
 	{
 		if (!is_num(av[i]))
 		{
-			ft_putstr("Parameter type error\n");
+			write(2, "Error\n", 6);
 			free_and_exit(stck);
 		}
 		num = ft_atol(av[i]);
 		if (num > INT_MAX || num < INT_MIN)
 		{
-			ft_putstr("INT range error\n");
+			write(2, "Error\n", 6);
 			free_and_exit(stck);
 		}
 		if (is_duplicate(av, num))
 		{
-			ft_putstr("Duplicate error\n");
+			write(2, "Error\n", 6);
 			free_and_exit(stck);
 		}
 		append_node(stck, (int)num);

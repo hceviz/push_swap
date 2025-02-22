@@ -6,7 +6,7 @@
 /*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:55:00 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/22 14:06:33 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/22 16:05:17 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ int	is_num(char *num)
 	int	i;
 
 	i = 0;
+	if ((*num == '-' || *num == '+') && (*(++num) == 0))
+	{
+		write(2, "Error\n", 6);
+		exit(EXIT_FAILURE); //should i free something here
+	}
 	if (num[i] == '-' || num[i] == '+')
 		i++;
 	while (num[i])
@@ -74,5 +79,5 @@ void	free_stack(t_stack **stck)
 void	free_and_exit(t_stack **stck)
 {
 	free_stack(stck);
-	exit(EXIT_FAILURE);
+	exit(EXIT_SUCCESS);
 }
