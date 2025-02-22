@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 15:59:53 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/21 12:25:17 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/22 14:11:39 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include <limits.h>
 # include <stdbool.h>
 
-# include <stdio.h>
-
 typedef struct s_stack
 {
 	int				value;
@@ -30,55 +28,65 @@ typedef struct s_stack
 	struct s_stack	*target;
 	struct s_stack	*prev;
 	struct s_stack	*next;
-} Stack;
+}	t_stack;
 
-void	add_to_list(Stack **head, int value);
+//a_to_b.c
+t_stack	*find_closest_smaller(t_stack *b, int a_value);
+void	set_target_for_a(t_stack *a, t_stack *b);
+void	calculate_cost(t_stack *a, t_stack *b);
+void	set_cheapest(t_stack *a);
+void	tune_nodes_a(t_stack *a, t_stack *b);
+
+//b_to_a.c
+t_stack	*find_closest_bigger(t_stack *a, int b_value);
+void	set_target_for_b(t_stack *a, t_stack *b);
+void	tune_nodes_b(t_stack *a, t_stack *b);
+
+//check.c
+int		ft_isdigit(int c);
 int		is_num(char *num);
-int	is_duplicate(char **av, long num);
-void	free_stack(Stack **stck);
-void	free_and_exit(Stack **stck);
-long	ft_atol(const char *p);
-void	append_node(Stack **stck, int value);
-void	print_list(Stack *stck);
-void	stack_init(Stack **stck, char **av);
-char **split(char *s, char c);
-static char	*get_next_word(char *str, char separator);
-static int	count_words(char *str, char separator);
-int	ft_isdigit(int c);
-int	is_ascending(Stack *stck);
-int	stacklen(Stack *stck);
-void	minisort(Stack **stck);
-Stack	*getmax(Stack *stck);
-Stack	*getmin(Stack *stck);
-void	swap(Stack **stck);
-void	sa(Stack	**a, bool print);
-void	sb(Stack	**b, bool print);
-void	ss(Stack **a, Stack **b, bool print);
-Stack	*getlast(Stack *stck);
-void	rotate_both_ways(Stack **stck, char direction, char stackname, bool print);
-void	rr(Stack **a, Stack **b, bool print);
-void	reverse_rotate(Stack **stck);
-void	rrr(Stack **a, Stack **b, bool print);
-void	pop_node(Stack **stck);
-void	update_index(Stack *stck);
-void	push(Stack **from, Stack **to);
-void	pa(Stack  **b, Stack **a, bool print);
-void	pb(Stack **a, Stack **b, bool print);
+int		is_duplicate(char **av, long num);
+void	free_stack(t_stack **stck);
+void	free_and_exit(t_stack **stck);
+
+//megasort.c
+void	megasort(t_stack **a, t_stack **b);
+void	prep_push(t_stack **stck, t_stack *node_for_top, char t_stack_name);
+void	revnormal_both(t_stack **a, t_stack **b, t_stack *chpst, char r_type);
+
+//push.c
+void	pa(t_stack **b, t_stack **a, bool print);
+void	pb(t_stack **a, t_stack **b, bool print);
+
+//rotate.c
+void	r_both_ways(t_stack **stck, char drcton, char t_stcknme, bool prnt);
+void	rr(t_stack **a, t_stack **b, bool print);
+void	rrr(t_stack **a, t_stack **b, bool print);
+
+//split.c
+char	**split(char *s, char c);
+
+//t_stack_helper.c
+void	minisort(t_stack **stck);
+void	update_index(t_stack *stck);
+void	top_min(t_stack **a);
+
+//t_stack.c
+void	stack_init(t_stack **stck, char **av);
+int		is_ascending(t_stack *stck);
+t_stack	*get_cheapest(t_stack	*a);
+void	append_node(t_stack **stck, int value);
+
+//swap.c
+void	sa(t_stack	**a, bool print);
+void	sb(t_stack	**b, bool print);
+void	ss(t_stack **a, t_stack **b, bool print);
+
+//utils.c
 void	ft_putstr(char *str);
-void	set_target_for_a(Stack *a, Stack *b);
-Stack	*find_closest_smaller(Stack *b, int a_value);
-void	calculate_cost(Stack *a, Stack *b);
-void	set_cheapest(Stack *a);
-void	tune_nodes_a(Stack *a, Stack *b);
-void	prep_push(Stack **stck, Stack *node_for_top, char stack_name);
-Stack	*get_cheapest(Stack	*a);
-void	top_min(Stack **a);
-void	revnormal_both(Stack **a, Stack **b, Stack *cheapest, char r_type);
-void	set_target_for_b(Stack *a, Stack *b);
-Stack	*find_closest_bigger(Stack *a, int b_value);
-void	tune_nodes_b(Stack *a, Stack *b);
-void	megasort(Stack **a, Stack **b);
-int is_in_stack(Stack *stack, Stack *node);
-void	set_connections(Stack *node, Stack **to);
+long	ft_atol(const char *p);
+int		stacklen(t_stack *stck);
+t_stack	*getmax(t_stack *stck);
+t_stack	*getmin(t_stack *stck);
 
 #endif

@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   b_to_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:54:26 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/21 12:25:30 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/22 14:06:35 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-Stack	*find_closest_bigger(Stack *a, int b_value)
+t_stack	*find_closest_bigger(t_stack *a, int b_value)
 {
-	Stack	*current_a;
-	Stack	*target_node;
+	t_stack	*current_a;
+	t_stack	*target_node;
 	int		closer_num;
 
 	closer_num = INT_MAX;
@@ -35,10 +35,10 @@ Stack	*find_closest_bigger(Stack *a, int b_value)
 	return (target_node);
 }
 
-void	set_target_for_b(Stack *a, Stack *b)
+void	set_target_for_b(t_stack *a, t_stack *b)
 {
-	Stack	*target_node;
-	Stack	*b_head;
+	t_stack	*target_node;
+	t_stack	*b_head;
 
 	b_head = b;
 	while (b)
@@ -54,7 +54,7 @@ void	set_target_for_b(Stack *a, Stack *b)
 	}
 }
 
-void	tune_nodes_b(Stack *a, Stack *b)
+void	tune_nodes_b(t_stack *a, t_stack *b)
 {
 	update_index(a);
 	update_index(b);

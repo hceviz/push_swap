@@ -3,42 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   megasort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:55:13 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/21 12:25:21 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/22 14:10:21 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
 //understand the rotateboth and revrotateboth functions
-void	move_a(Stack **a, Stack **b)
+void	move_a(t_stack **a, t_stack **b)
 {
-	Stack	*cheapest;
+	t_stack	*cheapest;
 
 	cheapest = get_cheapest(*a);
 	if (cheapest->a_median && cheapest->target->a_median)
-		revnormal_rotate_both(a, b, cheapest, 'n');
+		revnormal_both(a, b, cheapest, 'n');
 	else if (!cheapest->a_median && !cheapest->target->a_median)
-		revnormal_rotate_both(a, b, cheapest, 'r');
+		revnormal_both(a, b, cheapest, 'r');
 	prep_push(a, cheapest, 'a');
 	prep_push(b, cheapest->target, 'b');
 	pb(a, b, true);
 }
 
-void	move_b(Stack **a, Stack **b)
+void	move_b(t_stack **a, t_stack **b)
 {
 	prep_push(a, (*b)->target, 'a');
 	pa(b, a, true);
 }
 
-void	megasort(Stack **a, Stack **b)
+void	megasort(t_stack **a, t_stack **b)
 {
 	int		len_a;
-	Stack	*b_head;
 
-	b_head = *b;
 	len_a = stacklen(*a);
 	if (len_a-- > 3 && !is_ascending(*a))
 		pb(a, b, true);
@@ -59,7 +57,7 @@ void	megasort(Stack **a, Stack **b)
 	top_min(a);
 }
 
-void	revnormal_both(Stack **a, Stack **b, Stack *cheapest, char r_type)
+void	revnormal_both(t_stack **a, t_stack **b, t_stack *cheapest, char r_type)
 {
 	while (*b != cheapest->target && *a != cheapest)
 	{
@@ -72,23 +70,23 @@ void	revnormal_both(Stack **a, Stack **b, Stack *cheapest, char r_type)
 	update_index(*b);
 }
 
-void	prep_push(Stack **stck, Stack *node_for_top, char stack_name)
+void	prep_push(t_stack **stck, t_stack *node_for_top, char stack_name)
 {
 	while (*stck != node_for_top)
 	{
 		if (stack_name == 'a')
 		{
 			if (node_for_top->a_median)
-				rotate_both_ways(stck, 'f', 'a', true);
+				r_both_ways(stck, 'f', 'a', true);
 			else
-				rotate_both_ways(stck, 'r', 'a', true);
+				r_both_ways(stck, 'r', 'a', true);
 		}
 		else if (stack_name == 'b')
 		{
 			if (node_for_top->a_median)
-				rotate_both_ways(stck, 'f', 'b', true);
+				r_both_ways(stck, 'f', 'b', true);
 			else
-				rotate_both_ways(stck, 'r', 'b', true);
+				r_both_ways(stck, 'r', 'b', true);
 		}
 	}
 }

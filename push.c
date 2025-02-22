@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 11:21:39 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/21 11:46:49 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/22 14:05:58 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	set_connections(Stack *node, Stack **to)
+void	set_connections(t_stack *node, t_stack **to)
 {
 	if (!*to)
 	{
@@ -30,9 +30,9 @@ void	set_connections(Stack *node, Stack **to)
 	}
 }
 
-void	push(Stack **from, Stack **to)
+void	push(t_stack **from, t_stack **to)
 {
-	Stack	*node;
+	t_stack	*node;
 
 	if (!*from)
 		return ;
@@ -50,14 +50,14 @@ void	push(Stack **from, Stack **to)
 	update_index(*from);
 }
 
-void	pa(Stack **b, Stack **a, bool print)
+void	pa(t_stack **b, t_stack **a, bool print)
 {
 	push(b, a);
 	if (print == true)
 		ft_putstr("pa\n");
 }
 
-void	pb(Stack **a, Stack **b, bool print)
+void	pb(t_stack **a, t_stack **b, bool print)
 {
 	push(a, b);
 	if (print == true)

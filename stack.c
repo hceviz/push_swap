@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 11:21:56 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/21 12:25:26 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/22 14:05:46 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	stack_init(Stack **stck, char **av)
+void	stack_init(t_stack **stck, char **av)
 {
 	long	num;
 	int		i;
@@ -22,7 +22,7 @@ void	stack_init(Stack **stck, char **av)
 	{
 		if (!is_num(av[i]))
 		{
-			ft_putstr("Num type error\n");
+			ft_putstr("Parameter type error\n");
 			free_and_exit(stck);
 		}
 		num = ft_atol(av[i]);
@@ -41,13 +41,13 @@ void	stack_init(Stack **stck, char **av)
 	}
 }
 
-void	append_node(Stack **stck, int value)
+void	append_node(t_stack **stck, int value)
 {
-	Stack	*node;
+	t_stack	*node;
 
 	if (!stck)
 		return ;
-	node = malloc(sizeof(Stack));
+	node = malloc(sizeof(t_stack));
 	if (!node)
 		return ;
 	node->value = value;
@@ -69,9 +69,9 @@ void	append_node(Stack **stck, int value)
 	}
 }
 
-int	is_ascending(Stack *stck)
+int	is_ascending(t_stack *stck)
 {
-	Stack	*head;
+	t_stack	*head;
 
 	head = stck;
 	if (stacklen(stck) == 1)
@@ -89,10 +89,10 @@ int	is_ascending(Stack *stck)
 	return (1);
 }
 
-void	pop_node(Stack **stck)
+void	pop_node(t_stack **stck)
 {
-	Stack	*node;
-	Stack	*last;
+	t_stack	*node;
+	t_stack	*last;
 
 	if (!*stck)
 		return ;
@@ -110,9 +110,9 @@ void	pop_node(Stack **stck)
 	update_index(*stck);
 }
 
-Stack	*get_cheapest(Stack	*a)
+t_stack	*get_cheapest(t_stack *a)
 {
-	Stack	*a_head;
+	t_stack	*a_head;
 
 	if (!a)
 		return (NULL);

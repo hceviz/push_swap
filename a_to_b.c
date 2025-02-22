@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   a_to_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:53:15 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/21 12:25:30 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/22 14:07:14 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-Stack	*find_closest_smaller(Stack *b, int a_value)
+t_stack	*find_closest_smaller(t_stack *b, int a_value)
 {
-	Stack	*current_b;
-	Stack	*target_node;
+	t_stack	*current_b;
+	t_stack	*target_node;
 	int		closer_num;
 
 	closer_num = INT_MIN;
@@ -35,10 +35,10 @@ Stack	*find_closest_smaller(Stack *b, int a_value)
 	return (target_node);
 }
 
-void	set_target_for_a(Stack *a, Stack *b)
+void	set_target_for_a(t_stack *a, t_stack *b)
 {
-	Stack	*target_node;
-	Stack	*a_head;
+	t_stack	*target_node;
+	t_stack	*a_head;
 
 	a_head = a;
 	while (a)
@@ -54,9 +54,9 @@ void	set_target_for_a(Stack *a, Stack *b)
 	}
 }
 
-void	calculate_cost(Stack *a, Stack *b)
+void	calculate_cost(t_stack *a, t_stack *b)
 {
-	Stack	*a_head;
+	t_stack	*a_head;
 	int		len_a;
 	int		len_b;
 
@@ -79,10 +79,10 @@ void	calculate_cost(Stack *a, Stack *b)
 }
 
 //anyway it will find cheapest
-void	set_cheapest(Stack *a)
+void	set_cheapest(t_stack *a)
 {
-	Stack	*a_head;
-	Stack	*cheapest_node;
+	t_stack	*a_head;
+	t_stack	*cheapest_node;
 	int		cheapest;
 
 	if (!a)
@@ -103,7 +103,7 @@ void	set_cheapest(Stack *a)
 	cheapest_node->is_cheapest = true;
 }
 
-void	tune_nodes_a(Stack *a, Stack *b)
+void	tune_nodes_a(t_stack *a, t_stack *b)
 {
 	update_index(a);
 	update_index(b);

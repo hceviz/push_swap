@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:55:00 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/21 12:25:29 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/22 14:06:33 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ int	is_duplicate(char **av, long num)
 	return (0);
 }
 
-void	free_stack(Stack **stck)
+void	free_stack(t_stack **stck)
 {
-	Stack	*temp;
-	Stack	*current;	
+	t_stack	*temp;
+	t_stack	*current;	
 
 	if (!stck || !(*stck))
 		return ;
@@ -71,7 +71,7 @@ void	free_stack(Stack **stck)
 	*stck = NULL;
 }
 
-void	free_and_exit(Stack **stck)
+void	free_and_exit(t_stack **stck)
 {
 	free_stack(stck);
 	exit(EXIT_FAILURE);

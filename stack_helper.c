@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   stack_helper.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 07:45:12 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/21 12:25:25 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/22 14:10:43 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-void	minisort(Stack **a)
+void	minisort(t_stack **a)
 {
-	Stack	*highest_node;
+	t_stack	*highest_node;
 
 	highest_node = getmax(*a);
 	if (*a == highest_node)
-		rotate_both_ways(a, 'f', 'a', true);
+		r_both_ways(a, 'f', 'a', true);
 	else if ((*a)->next == highest_node)
-		rotate_both_ways(a, 'r', 'a', true);
+		r_both_ways(a, 'r', 'a', true);
 	if ((*a)->value > (*a)->next->value)
 		sa(a, true);
 }
 
-Stack	*getlast(Stack *stck)
+t_stack	*getlast(t_stack *stck)
 {
-	Stack	*head;
+	t_stack	*head;
 
 	if (!stck)
 		return (NULL);
@@ -37,9 +37,9 @@ Stack	*getlast(Stack *stck)
 	return (stck);
 }
 
-void	update_index(Stack *stck)
+void	update_index(t_stack *stck)
 {
-	Stack	*head;
+	t_stack	*head;
 	int		index;
 	int		median;
 
@@ -47,7 +47,7 @@ void	update_index(Stack *stck)
 		return ;
 	head = stck;
 	index = 0;
-	median = stacklen(stck) / 2; //consider the median location in case of float number 5/2
+	median = stacklen(stck) / 2;
 	while (stck)
 	{
 		if (index > median)
@@ -57,34 +57,17 @@ void	update_index(Stack *stck)
 		stck->index = index++;
 		stck = stck->next;
 		if (stck == head)
-			break;
+			break ;
 	}
 }
 
-int is_in_stack(Stack *stack, Stack *node) //DELETE FROM HERE AND HEADER BEFORE PUSH 
+void	top_min(t_stack **a)
 {
-	Stack *tmp = stack;
-	if (!stack || !node)
-		return (0);
-	while (tmp)
-	{
-		if (tmp == node)
-			return (1);
-		tmp = tmp->next;
-		if (tmp == stack)  // If stack is circular, avoid infinite loop
-			break;
-	}
-	return (0);
-}
-
-void	top_min(Stack **a)
-{
-	//printf("Top min block\n");
-	while((*a)->value != getmin(*a)->value)
+	while ((*a)->value != getmin(*a)->value)
 	{
 		if (getmin(*a)->a_median)
-			rotate_both_ways(a, 'f', 'a', true);
+			r_both_ways(a, 'f', 'a', true);
 		else
-			rotate_both_ways(a, 'r', 'a', true);
+			r_both_ways(a, 'r', 'a', true);
 	}
 }

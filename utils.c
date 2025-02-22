@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:25:42 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/21 12:25:27 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/22 14:05:35 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ long	ft_atol(const char *p)
 	return (res * sign);
 }
 
-int	stacklen(Stack *stck)
+int	stacklen(t_stack *stck)
 {
-	Stack	*head;
+	t_stack	*head;
 	int		count;
 
 	head = stck;
@@ -69,11 +69,11 @@ int	stacklen(Stack *stck)
 	return (count);
 }
 
-Stack	*getmax(Stack *stck)
+t_stack	*getmax(t_stack *stck)
 {
 	int			highest;
-	Stack		*highest_node;
-	Stack		*head;
+	t_stack		*highest_node;
+	t_stack		*head;
 
 	if (NULL == stck)
 		return (NULL);
@@ -98,11 +98,11 @@ Stack	*getmax(Stack *stck)
 	return (highest_node);
 }
 
-Stack	*getmin(Stack *stck)
+t_stack	*getmin(t_stack *stck)
 {
 	int			lowest;
-	Stack		*lowest_node;
-	Stack		*head;
+	t_stack		*lowest_node;
+	t_stack		*head;
 
 	if (NULL == stck)
 		return (NULL);
