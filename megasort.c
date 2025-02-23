@@ -6,13 +6,12 @@
 /*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:55:13 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/22 14:10:21 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/23 14:29:16 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-//understand the rotateboth and revrotateboth functions
 void	move_a(t_stack **a, t_stack **b)
 {
 	t_stack	*cheapest;
