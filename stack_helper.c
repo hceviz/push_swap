@@ -6,7 +6,7 @@
 /*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 07:45:12 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/22 14:10:43 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/23 14:23:02 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	minisort(t_stack **a)
 {
 	t_stack	*highest_node;
 
+	if (stacklen(*a) == 2)
+		sa(a, true);
 	highest_node = getmax(*a);
 	if (*a == highest_node)
 		r_both_ways(a, 'f', 'a', true);
