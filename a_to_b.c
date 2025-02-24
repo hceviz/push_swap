@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   a_to_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:53:15 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/22 16:27:24 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/24 09:25:36 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	calculate_cost(t_stack *a, t_stack *b)
 	}
 }
 
-//anyway it will find cheapest
 void	set_cheapest(t_stack *a)
 {
 	t_stack	*a_head;

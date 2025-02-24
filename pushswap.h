@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pushswap.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 15:59:53 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/22 14:11:39 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/24 09:57:18 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,12 @@ void	rrr(t_stack **a, t_stack **b, bool print);
 //split.c
 char	**split(char *s, char c);
 
-//t_stack_helper.c
+//stack_helper.c
 void	minisort(t_stack **stck);
 void	update_index(t_stack *stck);
 void	top_min(t_stack **a);
 
-//t_stack.c
+//stack.c
 void	stack_init(t_stack **stck, char **av);
 int		is_ascending(t_stack *stck);
 t_stack	*get_cheapest(t_stack	*a);

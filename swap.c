@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 08:52:41 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/22 14:05:38 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/24 09:25:53 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	swap(t_stack **stck)
 	update_index(*stck);
 }
 
-//to avoid from creating extra print function, added boolean print param
 void	sa(t_stack	**a, bool print)
 {
 	swap(a);

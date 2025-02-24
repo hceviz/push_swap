@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hceviz <hceviz@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hceviz <hceviz@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 10:25:42 by hceviz            #+#    #+#             */
-/*   Updated: 2025/02/22 16:31:51 by hceviz           ###   ########.fr       */
+/*   Updated: 2025/02/24 09:42:03 by hceviz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,34 +20,6 @@ void	ft_putstr(char *str)
 	while (str[++i])
 		write(1, &str[i], 1);
 }
-
-/* long	ft_atol(const char *p)
-{
-	int		sign;
-	int		i;
-	long	res;
-
-	i = 0;
-	res = 0;
-	sign = 1;
-	while (p[i] && (p[i] == ' ' || p[i] == '\t'
-			|| p[i] == '\n' || p[i] == '\r'
-			|| p[i] == '\v' || p[i] == '\f'))
-		i++;
-	if (p[i] == '+')
-		i++;
-	if (p[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	while (p[i] >= 48 && p[i] <= 57)
-	{
-		res = (res * 10) + (p[i] - '0');
-		i++;
-	}
-	return (res * sign);
-} */
 
 long	ft_atol(const char *p)
 {
