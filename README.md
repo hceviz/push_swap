@@ -3,7 +3,7 @@
 **push_swap** is a sorting algorithm project from 42 School. The goal is to sort a stack of integers using a limited set of operations with the smallest possible number of moves.
 
 ## Description
-You must write a program that calculates and displays a sequence of instructions to sort a list of integers using two stacks (a and b) and a restricted set of operations. The main focus is algorithm efficiency and minimizing the number of operations.
+push_swap calculates and displays a sequence of instructions to sort a list of integers using two stacks (a and b) and a restricted set of operations. The main focus is algorithm efficiency and minimizing the number of operations.
 
 ## Allowed Operations
 You can only use the following operations to manipulate the stacks:
